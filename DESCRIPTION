@@ -1,0 +1,15 @@
+Package: utilucho
+Type: Package
+Title: Lucho's Personal Utils
+Version: 0.1.0
+Author: Lucho Lee
+Maintainer: The package maintainer <luisalejandrolee@gmail.com>
+Description: This is a personal package. It simply gathers some functions
+    that I use frequently. Ideally, at some point I will open it and transform
+    it into a package for the analytics team to use
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+  data.table
+RoxygenNote: 6.0.1
