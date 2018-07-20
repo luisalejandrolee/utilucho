@@ -12,3 +12,5 @@ print_truth <- function(name = "Lucho"){
   dt <- data.table::data.table(a = name, b = "es el mejor!")
   print(dt)
 }
+
+# Random comments to test git
