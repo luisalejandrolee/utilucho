@@ -13,4 +13,7 @@ print_truth <- function(name = "Lucho"){
   print(dt)
 }
 
+print_something <- function(){
+  print("something")
+}
 # Random comments to test git
