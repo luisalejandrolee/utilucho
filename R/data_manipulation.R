@@ -3,7 +3,7 @@ devtools::use_package("data.table")
 #' Input NAs in a data.table with the column's median, mean or zeros
 #' @param dt Data table
 #' @param cols Columns from \code{dt}
-#' @treatment String. Accepts "zero", "mean", "median"
+#' @param treatment Accepts "zero", "mean", "median"
 #' @usage Notice that \code{dt} will be modified dinamycally with the ':='
 #' operator. Make sure you make a hard copy of \code{dt} if you want to keep the
 #' original data.table
@@ -13,6 +13,7 @@ devtools::use_package("data.table")
 
 input_nas <- function(dt, cols, treatment) {
   # TODO: check if there are actually NA's in the chosen cols. If not, warn and stop
+  # TODO: check that dt is actually a data.table object and act accordingly
 
   # filter columns not present in dt
 
@@ -26,7 +27,6 @@ input_nas <- function(dt, cols, treatment) {
   if (FALSE %in% temp){ # there are chosen variables not in dt
     print(paste("The following 'cols' are not in 'dt': ", paste(not_dt, collapse = ",")))
   }
-
 
   # transform dt
   dt[, (cols) := lapply(cols, function(x) {
@@ -42,14 +42,14 @@ input_nas <- function(dt, cols, treatment) {
       x[is.na(x)] <- median(x, na.rm = TRUE)
     }
     else {
-      print(paste0("Invalid treatment value. Please choose 'zero, 'median',or 'mean'"))
+      print("Invalid treatment value. Please choose 'zero, 'median',or 'mean'")
       stop()
     }
     x
 
-    } # annonymous function
-    ) #lapply
-   ] # dt
+  } # annonymous function
+  ) #lapply
+  ] # dt
 } #end
 
 #' A test function that prints "Lucho es el mejor!" by default,
