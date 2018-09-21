@@ -1,5 +1,10 @@
 devtools::use_package("data.table")
 
+
+#'####################################
+#'########## INPUT NAS ###############
+#'####################################
+
 #' Input NAs in a data.table with the column's median, mean or zeros
 #' @param dt Data table
 #' @param cols Columns from \code{dt}
@@ -52,6 +57,16 @@ input_nas <- function(dt, cols, treatment) {
   ] # dt
 } #end
 
+
+
+
+
+
+
+#'######################################
+#'########## PRINT TRUTH ###############
+#'######################################
+
 #' A test function that prints "Lucho es el mejor!" by default,
 #' but can also print someone else's name
 #' @param name Name of the person who rox
@@ -63,3 +78,18 @@ print_truth <- function(name = "Lucho"){
   dt <- data.table::data.table(a = name, b = "es el mejor!")
   print(dt)
 }
+
+# TODO: include a function to clean up all column names in a data.table
+# Perhaps use regular expressions to change any special character, also remove
+# spaces if they are at the end (instead of being replaced by underscore)
+# Include setnames()
+# Should this function be in a different file? Is not data manipulation...although used
+# in the same stage of a data project (when cleaning data)
+#format_columns <- function(old_cols){
+#  Are you sure sapply needed?
+#  new_cols <- sapply(old_cols, tolower) # to lower case
+#  new_cols <- gsub(" ", "_", new_cols) # change spaces with underscores
+
+#  return(new_cols)
+
+#} # end of format_columns
